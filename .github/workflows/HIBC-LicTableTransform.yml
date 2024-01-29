@@ -44,7 +44,7 @@ jobs:
       - name: LibreOffice installieren
         run: |
           sudo apt update
-          sudo apt install -y libreoffice-core-nogui libreoffice-calc-nogui
+          sudo apt install -y libreoffice-core-nogui libreoffice-calc-nogui libreoffice-java-common
         
       # Skript ausführen
       - name: Transform.PS1 laden und ausführen
