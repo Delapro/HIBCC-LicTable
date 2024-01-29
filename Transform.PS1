@@ -14,10 +14,14 @@ Set-Content -path './easy.PS1' -value $s
 . ./easy.PS1
 # nicht mehr notwendig Install-StartBitstransfer -Verbose
 
+'Installiere LibreOffice'
 sudo apt install libreoffice-core-nogui libreoffice-calc-nogui -y
 # Start-BitsTransfer "https://easysoftware.de/util/PingDownload.txt" -ErrorAction SilentlyContinue -Verbose
+
+'Lade LICTable'
 Start-BitsTransfer 'https://www.hibcc.org/wp-content/uploads/LICTable.xls' -ErrorAction SilentlyContinue -Verbose
 # apt install libreoffice-core-nogui libreoffice-calc-nogui -y
+
 'Starte Konvertierung'
 $p=start-process -PassThru 'scalc' -ArgumentList @('--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; '.'}
 dir LICTable.dbf
