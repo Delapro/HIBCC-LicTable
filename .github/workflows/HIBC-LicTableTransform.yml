@@ -50,7 +50,7 @@ jobs:
           ./Transform.PS1
         shell: pwsh
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
-          name: LicTable.zip
+          name: LicTable
           path: ${{ github.workspace }}/LICTable.dbf
