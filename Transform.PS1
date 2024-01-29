@@ -11,7 +11,7 @@ pwd
 $s=(Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/Delapro/DelaproInstall/master/DLPInstall.PS1).Content
 $s=$s.SubString(0, $s.IndexOf('CMDLET-ENDE'))
 Set-Content -path './easy.PS1' -value $s
-'"Am Scriptende"' | Add-Content -path './easy.PS1'
+'"$([string][char]10)Am Scriptende$([string][char]10)"' | Add-Content -path './easy.PS1'
 . ./easy.PS1
 # DBF-Routinen gleich laden
 'DBFDownload/Init'
