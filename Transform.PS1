@@ -12,7 +12,10 @@ $s=(Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/De
 $s=$s.SubString(0, $s.IndexOf('CMDLET-ENDE'))
 Set-Content -path './easy.PS1' -value $s
 . ./easy.PS1
-# nicht mehr notwendig Install-StartBitstransfer -Verbose
+# DBF-Routinen gleich laden
+'DBFDownload/Init'
+. Invoke-PSDBFDownloadAndInit
+'easy/Delapro-Umgebung komplett vorhanden'
 
 # 'Installiere LibreOffice'
 # sudo apt install libreoffice-core-nogui libreoffice-calc-nogui -y
@@ -44,7 +47,6 @@ Function Get-DBFTable {
 }
 
 # Delapro-Anpassung
-. Invoke-PSDBFDownloadAndInit
 $Lic = Get-DBFTable ./LICTable.dbf
 
 "Anzahl Sätze: $($Lic.Length)"
