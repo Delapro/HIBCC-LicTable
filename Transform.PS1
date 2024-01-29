@@ -23,7 +23,11 @@ Start-BitsTransfer 'https://www.hibcc.org/wp-content/uploads/LICTable.xls' -Erro
 # apt install libreoffice-core-nogui libreoffice-calc-nogui -y
 
 'Starte Konvertierung'
-$p=start-process -PassThru 'scalc' -ArgumentList @('--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; '.'}
+# Windows
+# $p=start-process -PassThru 'scalc' -ArgumentList @('--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; '.'}
+# Linux
+$p=start-process -PassThru 'libreoffice' -ArgumentList @('--headless', '--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; '.'}
+
 dir LICTable.dbf
 
 
