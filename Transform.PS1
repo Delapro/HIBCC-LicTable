@@ -12,8 +12,11 @@ $s=(Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/De
 $s=$s.SubString(0, $s.IndexOf('CMDLET-ENDE'))
 Set-Content -path './easy.PS1' -value $s
 . ./easy.PS1
-Install-StartBitstransfer
+'Install-StartBitsTransfer aufrufen'
+Install-StartBitstransfer -Verbose
+'Install-StartBitsTransfer aufgerufen'
 
+apt install libreoffice-core-nogui libreoffice-calc-nogui -y
 Start-Bitstransfer https://www.hibcc.org/wp-content/uploads/LICTable.xls -Verbose
 apt install libreoffice-core-nogui libreoffice-calc-nogui -y
 $p=start-process -PassThru 'scalc' -ArgumentList @('--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100}
