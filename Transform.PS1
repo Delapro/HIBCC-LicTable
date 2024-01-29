@@ -29,4 +29,22 @@ $p=start-process -PassThru 'libreoffice' -ArgumentList @('--headless', '--conver
 
 dir LICTable.dbf
 
+# öffnet eine beliebe DBF-Datei und gibt die kompletten Records als Objekt zurück
+Function Get-DBFTable {
+    [CmdletBinding()]
+    Param(
+        [string]$Path
+    )
 
+    $Path = Resolve-Path $Path
+    $Dbf = Use-DBF $Path
+    $Dbf.GoTop()
+    foreach($nr in $Dbf.ListAll()) {$Dbf.Goto($nr); New-Object PSObject -Property $Dbf.Fields }
+    $Dbf.Close()
+}
+
+# Delapro-Anpassung
+. Invoke-PSDBFDownloadAndInit
+$Lic = Get-DBFTable ./LICTable.dbf
+
+"Anzahl Sätze: $($Lic.Length)"
