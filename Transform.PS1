@@ -19,13 +19,13 @@ Set-Content -path './easy.PS1' -value $s
 
 'Lade LICTable'
 Start-BitsTransfer 'https://www.hibcc.org/wp-content/uploads/LICTable.xls' -ErrorAction SilentlyContinue -Verbose
-# apt install libreoffice-core-nogui libreoffice-calc-nogui -y
+dir LICTable.xls
 
 'Starte Konvertierung'
 # Windows
 # $p=start-process -PassThru 'scalc' -ArgumentList @('--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; '.'}
 # Linux
-$p=start-process -PassThru 'libreoffice' -ArgumentList @('--headless', '--convert-to', 'dbf', '.\LICTable.xls'); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; '.'}
+$p=start-process -PassThru 'libreoffice' -ArgumentList @('--headless', '--convert-to', 'dbf', '.\LICTable.xls', "--outdir $(Resolve-Path .)"); while (-not $p.hasexited) {Start-sleep -Milliseconds 100; Write-Host '.' -NoNewLine}
 
 dir LICTable.dbf
 
