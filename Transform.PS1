@@ -17,9 +17,9 @@ dir ./easy.PS1
 'easy.PS1 Ende:'
 tail easy.PS1
 [Net.ServicePointManager]::SecurityProtocol.ToString().Split(',').Trim()
-dir .\psEasy.bat
-dir .\psEasyUpdate.bat
-dir .\psEasyUpdate.PS1
+dir ./psEasy.bat
+dir ./psEasyUpdate.bat
+dir ./psEasyUpdate.PS1
 
 . ./easy.PS1
 
