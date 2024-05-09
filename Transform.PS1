@@ -16,8 +16,14 @@ Set-Content -path './easy.PS1' -value $s
 dir ./easy.PS1
 'easy.PS1 Ende:'
 tail easy.PS1
+[Net.ServicePointManager]::SecurityProtocol.ToString().Split(',').Trim()
+dir .\psEasy.bat
+dir .\psEasyUpdate.bat
+dir .\psEasyUpdate.PS1
 
 . ./easy.PS1
+
+dir ./easy.PS1
 
 # DBF-Routinen gleich laden
 'DBFDownload/Init'
