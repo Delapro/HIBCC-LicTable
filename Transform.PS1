@@ -13,9 +13,6 @@ $s=$s.SubString(0, $s.IndexOf('CMDLET-ENDE'))
 Set-Content -path './easy.PS1' -value $s
 '"$([string][char]10)Am Scriptende$([string][char]10)"' | Add-Content -path './easy.PS1'
 
-dir ./easy.PS1
-dir
-Start-Transcript ./transcript.log
 try {
 . ./easy.PS1
 } catch {
