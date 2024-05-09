@@ -22,13 +22,6 @@ try {
     'Irgendwas ist schief gelaufen!'
 }
 
-dir
-dir ./psEasy.bat
-dir ./psEasyUpdate.bat
-dir ./psEasyUpdate.PS1
-
-dir ./easy.PS1
-
 # DBF-Routinen gleich laden
 'DBFDownload/Init'
 . Invoke-PSDBFDownloadAndInit
