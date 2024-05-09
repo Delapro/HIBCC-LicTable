@@ -14,14 +14,18 @@ Set-Content -path './easy.PS1' -value $s
 '"$([string][char]10)Am Scriptende$([string][char]10)"' | Add-Content -path './easy.PS1'
 
 dir ./easy.PS1
-'easy.PS1 Ende:'
-tail easy.PS1
-[Net.ServicePointManager]::SecurityProtocol.ToString().Split(',').Trim()
+dir
+Start-Transcript ./transcript.log
+try {
+. ./easy.PS1
+} catch {
+    'Irgendwas ist schief gelaufen!'
+}
+
+dir
 dir ./psEasy.bat
 dir ./psEasyUpdate.bat
 dir ./psEasyUpdate.PS1
-
-. ./easy.PS1
 
 dir ./easy.PS1
 
