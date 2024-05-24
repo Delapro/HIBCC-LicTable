@@ -56,6 +56,12 @@ Function Get-DBFTable {
 # Delapro-Anpassung
 $Lic = Get-DBFTable ./LICTable.dbf
 
+$Path = Resolve-Path $Path
+$Dbf = Use-DBF $Path
+$Dbf.GoTop()
+$Dbf.Fields
+$Dbf.Close()
+
 $Lic | Select -First 3
 
 ""
