@@ -56,6 +56,11 @@ Function Get-DBFTable {
 # Delapro-Anpassung
 $Lic = Get-DBFTable ./LICTable.dbf
 
-$Lic | Select @{N='ORIGIN';E={[string[]]' '*14 -join ''}}, LIC, @{N='FIRSTLIC';E={$_.LIC}}, @{N='INSTITUTIO';E={$_.INSTITUTIO.SubString(74)}}, @{N='DIVISION';E={$_.DIVISION.SubString(40)}}, COUNTRY   -First 10
+$Lic | Select -First 3
+
+""
+""
+
+$Lic | Select @{N='ORIGIN';E={"HIBCC".PadRight(14)}}, LIC, @{N='FIRSTLIC';E={$_.LIC}}, @{N='INSTITUTIO';E={$_.INSTITUTIO.SubString(74)}}, @{N='DIVISION';E={$_.DIVISION_S.SubString(40)}}, COUNTRY   -First 10
 
 "Anzahl Sätze: $($Lic.Length)"
