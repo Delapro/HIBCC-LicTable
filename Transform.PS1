@@ -21,8 +21,8 @@ try {
 
 # DBF-Routinen gleich laden
 'DBFDownload/Init'
-. Invoke-PSDBFDownloadAndInit
-'easy/Delapro-Umgebung komplett vorhanden'
+. ./Invoke-PSDBFDownloadAndInit -Verbose
+Write-Host 'easy/Delapro-Umgebung komplett vorhanden'
 
 # 'Installiere LibreOffice'
 # sudo apt install libreoffice-core-nogui libreoffice-calc-nogui -y
