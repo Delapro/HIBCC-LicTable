@@ -23,7 +23,7 @@ try {
 
 # DBF-Routinen gleich laden
 'DBFDownload/Init'
-. ./Invoke-PSDBFDownloadAndInit -Verbose
+. Invoke-PSDBFDownloadAndInit -Verbose
 Write-Host 'easy/Delapro-Umgebung komplett vorhanden'
 
 # 'Installiere LibreOffice'
