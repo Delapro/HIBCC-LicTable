@@ -14,7 +14,9 @@ Set-Content -path './easy.PS1' -value $s
 '"$([string][char]10)Am Scriptende$([string][char]10)"' | Add-Content -path './easy.PS1'
 
 try {
-. ./easy.PS1
+    "Im Try Block"
+    . ./easy.PS1 -Verbose
+    "Ende des Try Blocks"
 } catch {
     'Irgendwas ist schief gelaufen!'
 }
